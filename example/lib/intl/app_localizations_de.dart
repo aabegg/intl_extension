@@ -8,16 +8,16 @@ class AppLocalizationsDe extends AppLocalizations {
   AppLocalizationsDe([String locale = 'de']) : super(locale);
 
   @override
-  String get t975145968 => 'Flutter Demo Home Page';
+  String get t975145968 => 'Flutter Demo Startseite';
 
   @override
   String t495287403(num value) {
     return intl.Intl.pluralLogic(
       value,
       locale: localeName,
-      zero: 'You have not pushed the button yet.',
-      one: 'You pushed the button one',
-      other: 'You have pushed the button $value times.',
+      zero: 'Du hast die Schaltfläche noch nicht betätigt.',
+      one: 'Du hast die Schaltfläche ein Mal betätigt.',
+      other: 'Du hast die Schaltfläche $value Mal betätigt.',
     );
   }
 }
