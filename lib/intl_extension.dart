@@ -1,7 +1,6 @@
 library intl_extension;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/intl_config_scheme.dart';
+export 'src/intl_extension.dart';
+export 'src/intl_localizations.dart';
+export 'src/intl_change_listener.dart';

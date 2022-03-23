@@ -1,0 +1,9 @@
+sourceLang: 'en'
+targetLang:
+  - 'de'
+
+outputDir: './lib/intl'
+
+extract:
+  inputDir: './lib'
+  outputDir: './intl'

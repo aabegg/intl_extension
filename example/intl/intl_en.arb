@@ -1,0 +1,16 @@
+{
+  "@@locale": "en",
+  "t975145968": "Flutter Demo Home Page",
+  "@t975145968": {
+    "description": "Flutter Demo Home Page",
+    "placeholders": {}
+  },
+  "t495287403": "{value, plural, =0{You have not pushed the button yet.} =1{You pushed the button one} other{You have pushed the button {value} times.}}",
+  "@t495287403": {
+    "description": "You have pushed the button {value} times.",
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "@@last_modified": "2022-03-23T15:14:36.437741"
+}
