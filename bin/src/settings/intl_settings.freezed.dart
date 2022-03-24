@@ -265,9 +265,9 @@ class _$IntlExtractSettingsTearOff {
   const _$IntlExtractSettingsTearOff();
 
   _IntlExtractSettings call(
-      {String inputDir = './lib', String outputDir = './intl'}) {
+      {List<String> inputDirs = const ['./lib'], String outputDir = './intl'}) {
     return _IntlExtractSettings(
-      inputDir: inputDir,
+      inputDirs: inputDirs,
       outputDir: outputDir,
     );
   }
@@ -282,7 +282,7 @@ const $IntlExtractSettings = _$IntlExtractSettingsTearOff();
 
 /// @nodoc
 mixin _$IntlExtractSettings {
-  String get inputDir => throw _privateConstructorUsedError;
+  List<String> get inputDirs => throw _privateConstructorUsedError;
   String get outputDir => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -296,7 +296,7 @@ abstract class $IntlExtractSettingsCopyWith<$Res> {
   factory $IntlExtractSettingsCopyWith(
           IntlExtractSettings value, $Res Function(IntlExtractSettings) then) =
       _$IntlExtractSettingsCopyWithImpl<$Res>;
-  $Res call({String inputDir, String outputDir});
+  $Res call({List<String> inputDirs, String outputDir});
 }
 
 /// @nodoc
@@ -310,14 +310,14 @@ class _$IntlExtractSettingsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? inputDir = freezed,
+    Object? inputDirs = freezed,
     Object? outputDir = freezed,
   }) {
     return _then(_value.copyWith(
-      inputDir: inputDir == freezed
-          ? _value.inputDir
-          : inputDir // ignore: cast_nullable_to_non_nullable
-              as String,
+      inputDirs: inputDirs == freezed
+          ? _value.inputDirs
+          : inputDirs // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       outputDir: outputDir == freezed
           ? _value.outputDir
           : outputDir // ignore: cast_nullable_to_non_nullable
@@ -333,7 +333,7 @@ abstract class _$IntlExtractSettingsCopyWith<$Res>
           $Res Function(_IntlExtractSettings) then) =
       __$IntlExtractSettingsCopyWithImpl<$Res>;
   @override
-  $Res call({String inputDir, String outputDir});
+  $Res call({List<String> inputDirs, String outputDir});
 }
 
 /// @nodoc
@@ -349,14 +349,14 @@ class __$IntlExtractSettingsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? inputDir = freezed,
+    Object? inputDirs = freezed,
     Object? outputDir = freezed,
   }) {
     return _then(_IntlExtractSettings(
-      inputDir: inputDir == freezed
-          ? _value.inputDir
-          : inputDir // ignore: cast_nullable_to_non_nullable
-              as String,
+      inputDirs: inputDirs == freezed
+          ? _value.inputDirs
+          : inputDirs // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       outputDir: outputDir == freezed
           ? _value.outputDir
           : outputDir // ignore: cast_nullable_to_non_nullable
@@ -369,21 +369,21 @@ class __$IntlExtractSettingsCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_IntlExtractSettings implements _IntlExtractSettings {
   const _$_IntlExtractSettings(
-      {this.inputDir = './lib', this.outputDir = './intl'});
+      {this.inputDirs = const ['./lib'], this.outputDir = './intl'});
 
   factory _$_IntlExtractSettings.fromJson(Map<String, dynamic> json) =>
       _$$_IntlExtractSettingsFromJson(json);
 
   @JsonKey()
   @override
-  final String inputDir;
+  final List<String> inputDirs;
   @JsonKey()
   @override
   final String outputDir;
 
   @override
   String toString() {
-    return 'IntlExtractSettings(inputDir: $inputDir, outputDir: $outputDir)';
+    return 'IntlExtractSettings(inputDirs: $inputDirs, outputDir: $outputDir)';
   }
 
   @override
@@ -391,14 +391,14 @@ class _$_IntlExtractSettings implements _IntlExtractSettings {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _IntlExtractSettings &&
-            const DeepCollectionEquality().equals(other.inputDir, inputDir) &&
+            const DeepCollectionEquality().equals(other.inputDirs, inputDirs) &&
             const DeepCollectionEquality().equals(other.outputDir, outputDir));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(inputDir),
+      const DeepCollectionEquality().hash(inputDirs),
       const DeepCollectionEquality().hash(outputDir));
 
   @JsonKey(ignore: true)
@@ -414,14 +414,14 @@ class _$_IntlExtractSettings implements _IntlExtractSettings {
 }
 
 abstract class _IntlExtractSettings implements IntlExtractSettings {
-  const factory _IntlExtractSettings({String inputDir, String outputDir}) =
-      _$_IntlExtractSettings;
+  const factory _IntlExtractSettings(
+      {List<String> inputDirs, String outputDir}) = _$_IntlExtractSettings;
 
   factory _IntlExtractSettings.fromJson(Map<String, dynamic> json) =
       _$_IntlExtractSettings.fromJson;
 
   @override
-  String get inputDir;
+  List<String> get inputDirs;
   @override
   String get outputDir;
   @override

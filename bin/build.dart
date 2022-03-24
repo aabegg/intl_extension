@@ -7,7 +7,7 @@ import 'src/settings/intl_settings.dart';
 
 void main() async {
   final settings = IntlSettings.fromFile();
-  var objects = IntlExtract(inputDir: settings.extract.inputDir).run();
+  var objects = IntlExtract(inputDirs: settings.extract.inputDirs).run();
 
   await IntlGenerateArb(objects: objects, settings: settings).generate();
 

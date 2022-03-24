@@ -31,13 +31,16 @@ Map<String, dynamic> _$$_IntlSettingsToJson(_$_IntlSettings instance) =>
 _$_IntlExtractSettings _$$_IntlExtractSettingsFromJson(
         Map<String, dynamic> json) =>
     _$_IntlExtractSettings(
-      inputDir: json['inputDir'] as String? ?? './lib',
+      inputDirs: (json['inputDirs'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          const ['./lib'],
       outputDir: json['outputDir'] as String? ?? './intl',
     );
 
 Map<String, dynamic> _$$_IntlExtractSettingsToJson(
         _$_IntlExtractSettings instance) =>
     <String, dynamic>{
-      'inputDir': instance.inputDir,
+      'inputDirs': instance.inputDirs,
       'outputDir': instance.outputDir,
     };

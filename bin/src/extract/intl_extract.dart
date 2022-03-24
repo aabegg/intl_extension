@@ -6,14 +6,22 @@ import 'dart:io';
 import 'intl_object.dart';
 
 class IntlExtract {
-  final String inputDir;
+  final List<String> inputDirs;
 
   IntlExtract({
-    required this.inputDir,
+    required this.inputDirs,
   });
 
   List<IntlObject> run() {
-    var libDir = Directory(inputDir);
+    List<IntlObject> sourceObjects = [];
+    for (final dir in inputDirs) {
+      sourceObjects += processDir(dir);
+    }
+    return sourceObjects;
+  }
+
+  List<IntlObject> processDir(String dir) {
+    var libDir = Directory(dir);
     List<IntlObject> sourceObjects = [];
     for (var f in libDir.listSync(recursive: true)) {
       if (f is File && f.path.endsWith(".dart")) {

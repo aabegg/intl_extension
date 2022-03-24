@@ -32,8 +32,9 @@ class IntlSettings with _$IntlSettings {
             baseSettings.targetLang,
         outputDir: config['outputDir'] ?? baseSettings.outputDir,
         extract: baseSettings.extract.copyWith(
-          inputDir:
-              config['extract']?['inputDir'] ?? baseSettings.extract.inputDir,
+          inputDirs: YAMLHelper.toListOrNull<String>(
+                  config['extract']?['inputDirs']) ??
+              baseSettings.extract.inputDirs,
           outputDir:
               config['extract']?['outputDir'] ?? baseSettings.extract.outputDir,
         ),
@@ -51,7 +52,7 @@ class IntlSettings with _$IntlSettings {
 @freezed
 class IntlExtractSettings with _$IntlExtractSettings {
   const factory IntlExtractSettings({
-    @Default('./lib') String inputDir,
+    @Default(['./lib']) List<String> inputDirs,
     @Default('./intl') String outputDir,
   }) = _IntlExtractSettings;
 
