@@ -15,23 +15,32 @@ import "app_localizations_de.dart";
 
 class IntlConfig implements IntlConfigScheme {
   @override
+  final Locale sourceLocale = const Locale("en");
+  @override
   Locale locale;
   @override
   late dynamic localization;
   @override
   late Map<String, Function> mapper;
+  @override
+  final KeyNotFoundFunction keyNotFound;
 
   IntlConfig({
     this.locale = const Locale("en"),
+    this.keyNotFound = _defaultKeyNotFound,
   }) {
     setLocalization(locale);
     _initializeMapper();
   }
 
+  static _defaultKeyNotFound(String text) {
+    print('Translation for [$text] not found');
+  }
+
   @override
-  setLocalization(Locale locale) {
-    locale = locale;
-    switch (locale.toLanguageTag()) {
+  setLocalization(Locale newLocale) {
+    locale = newLocale;
+    switch (newLocale.toLanguageTag()) {
       case "en":
         localization = AppLocalizationsEn();
         break;
@@ -51,6 +60,12 @@ class IntlConfig implements IntlConfigScheme {
     mapper = {
       "t975145968": ([Map<String, String> params = const {}]) {
         return localization.t975145968;
+      },
+      "t1017881318": ([Map<String, String> params = const {}]) {
+        return localization.t1017881318;
+      },
+      "t67849586": ([Map<String, String> params = const {}]) {
+        return localization.t67849586;
       },
       "t495287403": (int value, [Map<String, String> params = const {}]) {
         return localization.t495287403(

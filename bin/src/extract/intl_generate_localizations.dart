@@ -45,25 +45,38 @@ class IntlGenerateLocalizations {
     fileString.writeln('');
     fileString.writeln('class IntlConfig implements IntlConfigScheme {');
     fileString.writeln('@override');
+    fileString.writeln(
+        'final Locale sourceLocale = const Locale("${settings.sourceLang}");');
+
+    fileString.writeln('@override');
     fileString.writeln('Locale locale;');
     fileString.writeln('@override');
     fileString.writeln('late dynamic localization;');
     fileString.writeln('@override');
     fileString.writeln('late Map<String, Function> mapper;');
+    fileString.writeln('@override');
+    fileString.writeln('final KeyNotFoundFunction keyNotFound;');
+
     fileString.writeln('');
 
     fileString.writeln('IntlConfig({');
     fileString.writeln('this.locale = const Locale("${settings.sourceLang}"),');
+    fileString.writeln('this.keyNotFound = _defaultKeyNotFound,');
     fileString.writeln('}) {');
     fileString.writeln('setLocalization(locale);');
     fileString.writeln('_initializeMapper();');
     fileString.writeln('}');
     fileString.writeln('');
 
+    fileString.writeln('static _defaultKeyNotFound(String text) {');
+    fileString.writeln("print('Translation for [\$text] not found');");
+    fileString.writeln(' }');
+    fileString.writeln('');
+
     fileString.writeln('@override');
-    fileString.writeln('setLocalization(Locale locale) {');
-    fileString.writeln('locale = locale;');
-    fileString.writeln('switch (locale.toLanguageTag()) {');
+    fileString.writeln('setLocalization(Locale newLocale) {');
+    fileString.writeln('locale = newLocale;');
+    fileString.writeln('switch (newLocale.toLanguageTag()) {');
 
     for (final locale in settings.locales) {
       fileString.writeln('case "${locale.replaceFirst("_", "-")}":');

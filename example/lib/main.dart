@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:intl_extension/intl_extension.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   IntlLocalizations.init(IntlConfig());
   runApp(const MyApp());
 }
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return IntlChangeListener(
+    return IntlChangeBuilder(
       builder: (context, locale) {
         return MaterialApp(
           title: 'Intl_Extension Demo',
@@ -62,6 +64,20 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  Widget _localeSwitch() {
+    if (IntlLocalizations.locale == const Locale('de')) {
+      return ElevatedButton(
+        onPressed: () => IntlLocalizations.setLocale(const Locale('en')),
+        child: Text('SWITCH TO ENGLISH'.intl()),
+      );
+    } else {
+      return ElevatedButton(
+        onPressed: () => IntlLocalizations.setLocale(const Locale('de')),
+        child: Text('SWITCH TO GERMAN'.intl()),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -96,6 +112,8 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            _localeSwitch(),
+            const SizedBox(height: 30),
             Text(
               'You have pushed the button {value} times.'.intlPlural(
                 value: _counter,

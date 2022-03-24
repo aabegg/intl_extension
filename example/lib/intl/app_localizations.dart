@@ -100,6 +100,18 @@ abstract class AppLocalizations {
   /// **'Flutter Demo Home Page'**
   String get t975145968;
 
+  /// SWITCH TO ENGLISH
+  ///
+  /// In en, this message translates to:
+  /// **'SWITCH TO ENGLISH'**
+  String get t1017881318;
+
+  /// SWITCH TO GERMAN
+  ///
+  /// In en, this message translates to:
+  /// **'SWITCH TO GERMAN'**
+  String get t67849586;
+
   /// You have pushed the button {value} times.
   ///
   /// In en, this message translates to:

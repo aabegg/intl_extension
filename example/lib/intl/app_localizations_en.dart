@@ -11,6 +11,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get t975145968 => 'Flutter Demo Home Page';
 
   @override
+  String get t1017881318 => 'SWITCH TO ENGLISH';
+
+  @override
+  String get t67849586 => 'SWITCH TO GERMAN';
+
+  @override
   String t495287403(num value) {
     return intl.Intl.pluralLogic(
       value,

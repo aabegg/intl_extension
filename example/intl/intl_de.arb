@@ -5,6 +5,16 @@
     "description": "Flutter Demo Home Page",
     "placeholders": {}
   },
+  "t1017881318": "WECHSELN ZU ENGLISCH",
+  "@t1017881318": {
+    "description": "SWITCH TO ENGLISH",
+    "placeholders": {}
+  },
+  "t67849586": "WECHSELN ZU DEUTSCH",
+  "@t67849586": {
+    "description": "SWITCH TO GERMAN",
+    "placeholders": {}
+  },
   "t495287403": "{value, plural, =0{Du hast die Schaltfläche noch nicht betätigt.} =1{Du hast die Schaltfläche ein Mal betätigt.} other{Du hast die Schaltfläche {value} Mal betätigt.}}",
   "@t495287403": {
     "description": "You have pushed the button {value} times.",
@@ -12,5 +22,5 @@
       "value": {}
     }
   },
-  "@@last_modified": "2022-03-23T15:39:33.828322"
+  "@@last_modified": "2022-03-24T14:44:15.142144"
 }

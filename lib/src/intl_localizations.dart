@@ -1,17 +1,28 @@
+import 'dart:async';
 import 'dart:io';
 import 'package:flutter/widgets.dart';
+import 'package:rxdart/subjects.dart';
 
 import 'intl_config_scheme.dart';
 
 class IntlLocalizations {
+  static final _controller = BehaviorSubject<Locale>();
   static late IntlConfigScheme _intlConfig;
+  static bool _ignoreSystemLocale = false;
 
-  static void init(IntlConfigScheme config, {initLocale = true}) {
+  static void init(IntlConfigScheme config, {ignoreSystemLocale = false}) {
     _intlConfig = config;
-    if (initLocale) {
-      calcAndSetLocale();
+    _ignoreSystemLocale = ignoreSystemLocale;
+
+    // Locale anhand System festlegen
+    if (!_ignoreSystemLocale) {
+      setPossibleLocaleBySystem();
+      WidgetsBinding.instance?.window.onLocaleChanged =
+          () => setPossibleLocaleBySystem();
     }
   }
+
+  static Stream<Locale> get stream => _controller.stream;
 
   static List<LocalizationsDelegate<dynamic>> get localizationsDelegates =>
       _intlConfig.localizationsDelegates;
@@ -20,9 +31,20 @@ class IntlLocalizations {
 
   static Locale get locale => _intlConfig.locale;
 
-  static Locale calcLocale() {
+  static void setLocale(Locale locale) {
+    if (supportedLocales.contains(locale)) {
+      _intlConfig.setLocalization(locale);
+    } else {
+      _intlConfig.setLocalization(supportedLocales.first);
+    }
+
+    _controller.add(_intlConfig.locale);
+  }
+
+  static Locale _getPossibleLocaleBySystem() {
     final Locale defaultSystemLocale =
         _defaultLocaleStringAsLocale(Platform.localeName);
+
     final cleanSupportedLocales =
         supportedLocales.map((e) => e.languageCode).toList();
 
@@ -38,13 +60,14 @@ class IntlLocalizations {
       return supportedLocales.elementAt(
           cleanSupportedLocales.indexOf(defaultSystemLocale.languageCode));
     } else {
-      return supportedLocales.first;
+      return _intlConfig.sourceLocale;
     }
   }
 
-  static Locale calcAndSetLocale() {
-    final locale = calcLocale();
+  static Locale setPossibleLocaleBySystem() {
+    final locale = _getPossibleLocaleBySystem();
     _intlConfig.setLocalization(locale);
+    _controller.add(_intlConfig.locale);
     return locale;
   }
 
@@ -52,6 +75,7 @@ class IntlLocalizations {
     try {
       return _intlConfig.mapper['t${text.hashCode}']!.call(params);
     } catch (e) {
+      _intlConfig.keyNotFound(text);
       return text;
     }
   }
@@ -64,6 +88,7 @@ class IntlLocalizations {
     try {
       return _intlConfig.mapper['t${text.hashCode}']!.call(value, params);
     } catch (e) {
+      _intlConfig.keyNotFound(text);
       return text;
     }
   }
@@ -76,6 +101,7 @@ class IntlLocalizations {
     try {
       return _intlConfig.mapper['t${text.hashCode}']!.call(value, params);
     } catch (e) {
+      _intlConfig.keyNotFound(text);
       return text;
     }
   }

@@ -5,6 +5,16 @@
     "description": "Flutter Demo Home Page",
     "placeholders": {}
   },
+  "t1017881318": "SWITCH TO ENGLISH",
+  "@t1017881318": {
+    "description": "SWITCH TO ENGLISH",
+    "placeholders": {}
+  },
+  "t67849586": "SWITCH TO GERMAN",
+  "@t67849586": {
+    "description": "SWITCH TO GERMAN",
+    "placeholders": {}
+  },
   "t495287403": "{value, plural, =0{You have not pushed the button yet.} =1{You pushed the button one} other{You have pushed the button {value} times.}}",
   "@t495287403": {
     "description": "You have pushed the button {value} times.",
@@ -12,5 +22,5 @@
       "value": {}
     }
   },
-  "@@last_modified": "2022-03-23T15:39:33.820320"
+  "@@last_modified": "2022-03-24T14:44:15.136147"
 }
