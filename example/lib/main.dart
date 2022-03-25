@@ -4,8 +4,8 @@ import 'package:intl_extension/intl_extension.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-
   IntlLocalizations.init(IntlConfig());
+
   runApp(const MyApp());
 }
 
