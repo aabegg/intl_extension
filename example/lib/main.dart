@@ -122,6 +122,16 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Text(
+              'Jemand kommt'.intlSelect(
+                value: 'male',
+                variants: {
+                  "male": "Ein Mann kommt",
+                  "female": "Eine Frau kommt"
+                },
+                params: {},
+              ),
+            ),
+            Text(
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),

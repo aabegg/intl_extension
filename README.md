@@ -73,7 +73,82 @@ Text('My address is {address}'.intl({"address": "CWC8+R9 Mountain View, Kaliforn
 > If the string is not yet included in the translations, it will be returned or displayed untranslated
 
 
-When you have marked new strings for translation, you need to run the above command to extract and generate the translation files. After that you need to restart the app.
+When you have marked new strings for translation, you need to run the above command to extract and generate the translation files. After that you need to restart the app. Otherwise the strings will be displayed untranslated.
+
+
+### Translate plurals
+
+You can easily translate a plural strings by appending intlPlural().
+
+```dart
+Text(
+    'You have pushed the button {value} times.'.intlPlural(
+        value: _counter,
+        zero: 'You have not pushed the button yet.',
+        one: 'You pushed the button once',
+    ),
+),
+```
+
+If the plural string contains parameters they can be passed to `intlPlural()` as `Map<String, String>`.
+
+```dart
+Text(
+    'You have pushed the button {value} times.'.intlPlural(
+        value: _counter,
+        zero: 'You have not pushed the button yet.',
+        one: 'You pushed the button {where} once',
+        params: {"where": "in the office"}
+    ),
+),
+```
+
+> If the plural string is not yet included in the translations, it will be returned or displayed untranslated
+
+When you have marked new plural strings for translation, you need to run the above command to extract and generate the translation files. After that you need to restart the app. Otherwise the string will be displayed untranslated.
+
+
+### Translate selects
+
+You can easily translate a select strings by appending intlSelect().
+The main string will be used as `other` if none of the variants fit.
+
+```dart
+Text(
+    'Someone comes'.intlSelect(value: 'female', variants: {
+        "male": "A man comes",
+        "female": "A woman comes"
+    }),
+),
+```
+
+If the select string contains parameters they can be passed to `intlSelect()` as `Map<String, String>`.
+
+```dart
+Text(
+    'Someone comes'.intlSelect(
+        value: 'male',
+        variants: {
+            "male": "A {age} year old man comes",
+            "female": "A {age} year old woman comes"
+        },
+        params: {"age": "30"},
+    ),
+),
+
+```
+
+> If the select string is not yet included in the translations, it will be returned or displayed untranslated
+
+When you have marked new select strings for translation, you need to run the above command to extract and generate the translation files. After that you need to restart the app. Otherwise the string will be displayed untranslated.
+
+
+
+
+
+
+
+
 
 
 
