@@ -152,7 +152,7 @@ With the following command the language can be changed at any time:
 IntlLocalizations.setLocale(const Locale('de'));
 ```
 
-To change the language in the app accordingly, an `IntlChangeBuilder` must be added around the `MatrialApp` widget. When the language is changed, this builder is executed again.
+To change the language in the app accordingly, an `IntlChangeBuilder` must be added around the `MaterialApp` widget. When the language is changed, this builder is executed again.
 
 ```dart
 @override
