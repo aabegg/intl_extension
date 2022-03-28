@@ -1,6 +1,6 @@
 name: intl_extension
-description: A new Flutter package project.
-version: 0.0.1
+description: Translations without boilerplate. With an extension for strings, corresponding ARB files are created via code generator, which in turn are converted into localization files with gen-l10n.
+version: 0.0.2
 homepage: https://github.com/aabegg/intl_extension
 
 environment:

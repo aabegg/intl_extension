@@ -122,11 +122,11 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             Text(
-              'Jemand kommt'.intlSelect(
+              'Someone comes'.intlSelect(
                 value: 'male',
                 variants: {
-                  "male": "Ein Mann kommt",
-                  "female": "Eine Frau kommt"
+                  "male": "A man comes",
+                  "female": "A woman comes",
                 },
                 params: {},
               ),
