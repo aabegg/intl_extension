@@ -143,31 +143,55 @@ Text(
 When you have marked new select strings for translation, you need to run the above command to extract and generate the translation files. After that you need to restart the app. Otherwise the string will be displayed untranslated.
 
 
+### Change language
 
+By default, the system language is loaded if possible. If this is not available, the original language is displayed.
 
-
-
-
-
-
-
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
+With the following command the language can be changed at any time:
 ```dart
-const like = 'sample';
+IntlLocalizations.setLocale(const Locale('de'));
 ```
 
-## Additional information
+To change the language in the app accordingly, an `IntlChangeBuilder` must be added around the `MatrialApp` widget. When the language is changed, this builder is executed again.
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+```dart
+@override
+  Widget build(BuildContext context) {
+    return IntlChangeBuilder(
+      builder: (context, locale) {
+        return MaterialApp(
+          title: 'Intl_Extension Demo',
+          localizationsDelegates: IntlLocalizations.localizationsDelegates,
+          supportedLocales: IntlLocalizations.supportedLocales,
+          locale: locale,
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: MyHomePage(title: 'Flutter Demo Home Page'.intl()),
+        );
+      },
+    );
+  }
+}
+```
+
+> The current locale which is available in the builder can be transferred directly to the MaterialApp.
+
+
+## Configuration
+
+For the configuration of the languages and folders where the language files are stored, an `intl.yaml` file can be created in the root directory.
+
+```yaml
+sourceLang: 'en'
+targetLang:
+  - 'de'
+
+outputDir: './lib/intl'
+
+extract:
+  inputDirs: 
+    - './lib'
+  outputDir: './intl'
+```
+
