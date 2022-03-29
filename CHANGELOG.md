@@ -1,3 +1,7 @@
+## 0.0.3
+
+* Metadata adjusted 
+
 ## 0.0.2
 
 * Adjustments on the example
