@@ -17,8 +17,7 @@ class IntlLocalizations {
     // Locale anhand System festlegen
     if (!_ignoreSystemLocale) {
       setPossibleLocaleBySystem();
-      WidgetsBinding.instance?.window.onLocaleChanged =
-          () => setPossibleLocaleBySystem();
+      WidgetsBinding.instance?.window.onLocaleChanged = () => setPossibleLocaleBySystem();
     }
   }
 
@@ -42,23 +41,19 @@ class IntlLocalizations {
   }
 
   static Locale _getPossibleLocaleBySystem() {
-    final Locale defaultSystemLocale =
-        _defaultLocaleStringAsLocale(Platform.localeName);
+    final Locale defaultSystemLocale = _defaultLocaleStringAsLocale(Platform.localeName);
 
-    final cleanSupportedLocales =
-        supportedLocales.map((e) => e.languageCode).toList();
+    final cleanSupportedLocales = supportedLocales.map((e) => e.languageCode).toList();
 
     if (supportedLocales.contains(defaultSystemLocale)) {
       // Prüft ob die Systemsprache inkl. Ländercode verfügbar ist
       return defaultSystemLocale;
-    } else if (supportedLocales
-        .contains(Locale(defaultSystemLocale.languageCode))) {
+    } else if (supportedLocales.contains(Locale(defaultSystemLocale.languageCode))) {
       // Prüft ob die Systemsprache ohne Ländercode verfügbar ist
       return Locale(defaultSystemLocale.languageCode);
-    } else if (cleanSupportedLocales
-        .contains(defaultSystemLocale.languageCode)) {
-      return supportedLocales.elementAt(
-          cleanSupportedLocales.indexOf(defaultSystemLocale.languageCode));
+    } else if (cleanSupportedLocales.contains(defaultSystemLocale.languageCode)) {
+      return supportedLocales
+          .elementAt(cleanSupportedLocales.indexOf(defaultSystemLocale.languageCode));
     } else {
       return _intlConfig.sourceLocale;
     }

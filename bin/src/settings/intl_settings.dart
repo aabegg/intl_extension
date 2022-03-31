@@ -1,23 +1,18 @@
 import 'dart:io';
-
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:yaml/yaml.dart';
 
-part 'intl_settings.freezed.dart';
-part 'intl_settings.g.dart';
+class IntlSettings {
+  final String sourceLang;
+  final List<String> targetLang;
+  final String outputDir;
+  final IntlExtractSettings extract;
 
-@freezed
-class IntlSettings with _$IntlSettings {
-  const IntlSettings._();
-  const factory IntlSettings({
-    @Default('en') String sourceLang,
-    @Default(['en']) List<String> targetLang,
-    @Default('./lib/intl') String outputDir,
-    @Default(IntlExtractSettings()) IntlExtractSettings extract,
-  }) = _IntlSettings;
-
-  factory IntlSettings.fromJson(Map<String, dynamic> json) =>
-      _$IntlSettingsFromJson(json);
+  const IntlSettings({
+    this.sourceLang = 'en',
+    this.targetLang = const ['en'],
+    this.outputDir = '.lib/intl',
+    this.extract = const IntlExtractSettings(),
+  });
 
   factory IntlSettings.fromFile({String file = 'intl.yaml'}) {
     const baseSettings = IntlSettings();
@@ -26,17 +21,15 @@ class IntlSettings with _$IntlSettings {
     if (configFile.existsSync()) {
       final config = loadYaml(configFile.readAsStringSync());
 
-      return baseSettings.copyWith(
+      return IntlSettings(
         sourceLang: config['sourceLang'] ?? baseSettings.sourceLang,
-        targetLang: YAMLHelper.toListOrNull<String>(config['targetLang']) ??
-            baseSettings.targetLang,
+        targetLang:
+            YAMLHelper.toListOrNull<String>(config['targetLang']) ?? baseSettings.targetLang,
         outputDir: config['outputDir'] ?? baseSettings.outputDir,
-        extract: baseSettings.extract.copyWith(
-          inputDirs: YAMLHelper.toListOrNull<String>(
-                  config['extract']?['inputDirs']) ??
+        extract: IntlExtractSettings(
+          inputDirs: YAMLHelper.toListOrNull<String>(config['extract']?['inputDirs']) ??
               baseSettings.extract.inputDirs,
-          outputDir:
-              config['extract']?['outputDir'] ?? baseSettings.extract.outputDir,
+          outputDir: config['extract']?['outputDir'] ?? baseSettings.extract.outputDir,
         ),
       );
     }
@@ -49,15 +42,14 @@ class IntlSettings with _$IntlSettings {
   }
 }
 
-@freezed
-class IntlExtractSettings with _$IntlExtractSettings {
-  const factory IntlExtractSettings({
-    @Default(['./lib']) List<String> inputDirs,
-    @Default('./intl') String outputDir,
-  }) = _IntlExtractSettings;
+class IntlExtractSettings {
+  final List<String> inputDirs;
+  final String outputDir;
 
-  factory IntlExtractSettings.fromJson(Map<String, dynamic> json) =>
-      _$IntlExtractSettingsFromJson(json);
+  const IntlExtractSettings({
+    this.inputDirs = const ['./lib'],
+    this.outputDir = './intl',
+  });
 }
 
 class YAMLHelper {

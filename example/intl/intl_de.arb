@@ -22,5 +22,12 @@
       "value": {}
     }
   },
-  "@@last_modified": "2022-03-24T15:28:02.546401"
+  "t907765343": "{value, select, male{A man comes} female{A woman comes} other{Someone comes}}",
+  "@t907765343": {
+    "description": "Someone comes",
+    "placeholders": {
+      "value": {}
+    }
+  },
+  "@@last_modified": "2022-03-31T08:43:05.207973"
 }

@@ -117,6 +117,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{value, plural, =0{You have not pushed the button yet.} =1{You pushed the button one} other{You have pushed the button {value} times.}}'**
   String t495287403(num value);
+
+  /// Someone comes
+  ///
+  /// In en, this message translates to:
+  /// **'{value, select, male{A man comes} female{A woman comes} other{Someone comes}}'**
+  String t907765343(Object value);
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

@@ -72,6 +72,11 @@ class IntlConfig implements IntlConfigScheme {
           value,
         );
       },
+      "t907765343": (String value, [Map<String, String> params = const {}]) {
+        return localization.t907765343(
+          value,
+        );
+      },
     };
   }
 }

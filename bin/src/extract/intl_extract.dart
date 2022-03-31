@@ -49,17 +49,14 @@ class IntlExtract {
 class DartFileExtractor {
   final String source;
 
-  final RegExp standardRegex =
-      RegExp("(?<=')[^']+(?='[^'a-zA-Z0-9]*\.\\bintl\\b)", dotAll: true);
+  final RegExp standardRegex = RegExp("(?<=')[^']+(?='[^'a-zA-Z0-9]*\.\\bintl\\b)", dotAll: true);
 
-  final RegExp pluralRegex =
-      RegExp("(?<=')[^']+(?='\.\\bintlPlural\(\\b([^)]*)\))", dotAll: true);
+  final RegExp pluralRegex = RegExp("(?<=')[^']+(?='\.\\bintlPlural\(\\b([^)]*)\))", dotAll: true);
 
   final RegExp pluralExtractZeroRegex = RegExp("(?<=zero:.*')(((?!').)*)(?=')");
   final RegExp pluralExtractOneRegex = RegExp("(?<=one:.*')(((?!').)*)(?=')");
 
-  final RegExp selectRegex =
-      RegExp("(?<=')[^']+(?='\.\\bintlSelect\(\\b([^)]*)\))", dotAll: true);
+  final RegExp selectRegex = RegExp("(?<=')[^']+(?='\.\\bintlSelect\(\\b([^)]*)\))", dotAll: true);
 
   final RegExp selectExtractRegex = RegExp("{.*}");
 
@@ -149,12 +146,11 @@ class DartFileExtractor {
         if (variantsIndex >= 0) {
           variantsString = fullString.substring(variantsIndex + 10);
         } else {
-          variantsString = paramsIndex >= 0
-              ? fullString.substring(0, paramsIndex - 1) + '}'
-              : fullString;
+          variantsString =
+              paramsIndex >= 0 ? fullString.substring(0, paramsIndex - 1) + '}' : fullString;
         }
 
-        final Map<String, dynamic> variants = jsonDecode(variantsString);
+        final Map<String, dynamic> variants = jsonDecode(variantsString.replaceAll(',}', '}'));
 
         variants.forEach((key, value) {
           icuMessage += ' $key{$value}';

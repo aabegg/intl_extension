@@ -26,4 +26,17 @@ class AppLocalizationsEn extends AppLocalizations {
       other: 'You have pushed the button $value times.',
     );
   }
+
+  @override
+  String t907765343(Object value) {
+    return intl.Intl.select(
+      value,
+      {
+        'male': 'A man comes',
+        'female': 'A woman comes',
+        'other': 'Someone comes'
+      },
+      desc: 'Someone comes'
+    );
+  }
 }
