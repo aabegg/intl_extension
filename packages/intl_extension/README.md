@@ -28,6 +28,7 @@ To use intl_extension you need to install it by adding them to your `pubspec.yam
 
 ```console
 $ flutter pub add intl_extension
+$ flutter pub add --dev intl_extension_builder
 ```
 
 
@@ -36,7 +37,7 @@ $ flutter pub add intl_extension
 At any time, the following command can be used to extract the strings and create the translation files:
 
 ```console
-$ flutter pub run intl_extension:build
+$ flutter pub run intl_extension_builder:build
 ```
 
 > Run this command first after you have installed the package
