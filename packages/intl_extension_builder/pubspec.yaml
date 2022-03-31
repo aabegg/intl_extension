@@ -1,19 +1,16 @@
-name: intl_extension
-description: Translations directly from code thanks to string extension, code generation and gen-l10n. Also suitable for monorepos.
-version: 0.0.4
+name: intl_extension_builder
+description: Builder for the intl_extension package
+version: 0.0.1
 homepage: https://github.com/aabegg/intl_extension
 
 environment:
-  sdk: ">=2.16.1 <3.0.0"
+  sdk: ">=2.16.2 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_localizations:
-    sdk: flutter
-  intl: ^0.17.0
-  rxdart: ^0.27.3
+
   yaml: ^3.1.0
   arb_utils: ^0.2.0
   recase: ^4.0.0
@@ -22,7 +19,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
-  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

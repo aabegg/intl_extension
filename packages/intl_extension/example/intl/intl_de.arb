@@ -5,29 +5,29 @@
     "description": "Flutter Demo Home Page",
     "placeholders": {}
   },
-  "t1017881318": "WECHSELN ZU ENGLISCH",
+  "t1017881318": "Wechseln zu Englisch",
   "@t1017881318": {
     "description": "SWITCH TO ENGLISH",
     "placeholders": {}
   },
-  "t67849586": "WECHSELN ZU DEUTSCH",
+  "t67849586": "Wechseln zu Deutsch",
   "@t67849586": {
     "description": "SWITCH TO GERMAN",
     "placeholders": {}
   },
-  "t495287403": "{value, plural, =0{Du hast die Schaltfläche noch nicht betätigt.} =1{Du hast die Schaltfläche ein Mal betätigt.} other{Du hast die Schaltfläche {value} Mal betätigt.}}",
+  "t495287403": "{value, plural, =0{Du hast die Schaltfläche noch nicht betätigt.} =1{Du hast die Schaltfläche ein Mal betätigt} other{Du hast die Schaltfläche {value} Mal betätigt.}}",
   "@t495287403": {
     "description": "You have pushed the button {value} times.",
     "placeholders": {
       "value": {}
     }
   },
-  "t907765343": "{value, select, male{A man comes} female{A woman comes} other{Someone comes}}",
+  "t907765343": "{value, select, male{Ein Mann kommt} female{Eine Frau kommt} other{Jemand kommt}}",
   "@t907765343": {
     "description": "Someone comes",
     "placeholders": {
       "value": {}
     }
   },
-  "@@last_modified": "2022-03-31T08:43:05.207973"
+  "@@last_modified": "2022-03-31T09:27:25.708904"
 }

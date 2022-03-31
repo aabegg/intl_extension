@@ -1,0 +1,1 @@
+library intl_extension_builder;

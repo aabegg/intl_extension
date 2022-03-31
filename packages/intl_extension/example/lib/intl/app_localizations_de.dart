@@ -11,10 +11,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get t975145968 => 'Flutter Demo Startseite';
 
   @override
-  String get t1017881318 => 'WECHSELN ZU ENGLISCH';
+  String get t1017881318 => 'Wechseln zu Englisch';
 
   @override
-  String get t67849586 => 'WECHSELN ZU DEUTSCH';
+  String get t67849586 => 'Wechseln zu Deutsch';
 
   @override
   String t495287403(num value) {
@@ -22,7 +22,7 @@ class AppLocalizationsDe extends AppLocalizations {
       value,
       locale: localeName,
       zero: 'Du hast die Schaltfläche noch nicht betätigt.',
-      one: 'Du hast die Schaltfläche ein Mal betätigt.',
+      one: 'Du hast die Schaltfläche ein Mal betätigt',
       other: 'Du hast die Schaltfläche $value Mal betätigt.',
     );
   }
@@ -32,9 +32,9 @@ class AppLocalizationsDe extends AppLocalizations {
     return intl.Intl.select(
       value,
       {
-        'male': 'A man comes',
-        'female': 'A woman comes',
-        'other': 'Someone comes'
+        'male': 'Ein Mann kommt',
+        'female': 'Eine Frau kommt',
+        'other': 'Jemand kommt'
       },
       desc: 'Someone comes'
     );
